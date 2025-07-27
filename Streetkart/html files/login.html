@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Streetkart - Login & Sign Up</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #faf0eb 0%, #ffe4e3 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .auth-container {
+            background: #F8F6F0;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 400px;
+            overflow: hidden;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(45deg, #2F4858, #3A5569);
+            padding: 30px 20px;
+            text-align: center;
+            color: #F8F6F0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+           
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+
+        .logo-text {
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: -0.5px;
+        }
+
+        .tagline {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+
+        .tab-container {
+            display: flex;
+            background: #D4C4B0;
+            margin: 0;
+        }
+
+        .tab {
+            flex: 1;
+            padding: 16px;
+            text-align: center;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            color: #2F4858;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .tab.active {
+            background: #F8F6F0;
+            color: #41677b;
+        }
+
+        .tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #41677b;
+        }
+
+        .form-container {
+            padding: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2F4858;
+            font-size: 14px;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #D4C4B0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #41677b;
+            box-shadow: 0 0 0 3px rgba(106, 90, 205, 0.1);
+        }
+
+        .otp-container {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .otp-input {
+            flex: 1;
+        }
+
+        .get-otp-btn {
+            background: #41677b;
+            color: white;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .get-otp-btn:hover {
+            background: #182f3b;
+            transform: translateY(-1px);
+        }
+
+        .primary-btn {
+            width: 100%;
+            background: linear-gradient(45deg, #33576b, #5e7d8d);
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px #193544;
+        }
+
+        .primary-btn:active {
+            transform: translateY(0);
+        }
+
+        .form-footer {
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .terms-text {
+            font-size: 12px;
+            color: #2F4858;
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+
+        .terms-text a {
+            color: #41677b;
+            text-decoration: none;
+        }
+
+        .terms-text a:hover {
+            text-decoration: underline;
+        }
+
+        .guest-link {
+            color: #41677b;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .guest-link:hover {
+            color: #234354;
+        }
+
+        .form-section {
+            display: none;
+            animation: fadeIn 0.4s ease-in;
+        }
+
+        .form-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateX(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .auth-container {
+                margin: 10px;
+            }
+            
+            .form-container {
+                padding: 20px;
+            }
+            
+            .logo-text {
+                font-size: 24px;
+            }
+            
+            .otp-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .get-otp-btn {
+                width: 100%;
+            }
+        }
+
+        .icon {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="auth-container">
+        <div class="header">
+            <div class="logo">
+                
+                <div class="logo-text">Streetkart</div>
+            </div>
+            <div class="tagline">Digital Supply Platform for Street Food Vendors</div>
+        </div>
+        
+        <div class="tab-container">
+            <button class="tab active" onclick="switchTab('login')">Login</button>
+            <button class="tab" onclick="switchTab('signup')">Sign Up</button>
+        </div>
+        
+        <div class="form-container">
+            <!-- Login Form -->
+            <div id="login-form" class="form-section active">
+                <form onsubmit="handleLogin(event)">
+                    <div class="form-group">
+                        <label for="login-mobile"><i class="fa-solid fa-phone"></i>Mobile Number</label>
+                        <input type="number" id="login-mobile" placeholder="Enter your mobile number" maxlength="10" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="login-otp"><i class="fa-solid fa-lock"></i> Password</label>
+                        <div class="otp-container">
+                            <input type="password" id="login-otp" class="otp-input" placeholder="Enter Password"  maxlength="6">
+                           
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="primary-btn">
+                         Login to Dashboard
+                    </button>
+                </form>
+            </div>
+            
+            <!-- Sign Up Form -->
+            <div id="signup-form" class="form-section">
+                <form onsubmit="handleSignup(event)">
+                    <div class="form-group">
+                        <label for="signup-name"><i class="fa-solid fa-user"></i> Full Name</label>
+                        <input type="text" id="signup-name" placeholder="Enter your full name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="signup-mobile"><i class="fa-solid fa-phone"></i> Mobile Number</label>
+                        <input type="tel" id="signup-mobile" placeholder="Enter your mobile number" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="signup-location"> <i class="fa-solid fa-location-dot"></i> Location</label>
+                        <input type="text" id="signup-location" placeholder="Enter your city/area" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="business-type"> <i class="fa-solid fa-briefcase"></i> Business Type</label>
+                        <select id="business-type" required>
+                            <option value="">Select your business type</option>
+                            <option value="street-food-cart">Street Food Cart</option>
+                            <option value="stall">Stall</option>
+                            <option value="kiosk">Kiosk</option>
+                            <option value="supplier">Supplier</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="primary-btn">
+                         Create Account
+                    </button>
+                </form>
+            </div>
+            
+            <div class="form-footer">
+                <div class="terms-text">
+                    By continuing, you agree to Streetkart's 
+                    <a href="#" onclick="alert('Terms & Conditions page')">Terms</a> & 
+                    <a href="#" onclick="alert('Privacy Policy page')">Privacy Policy</a>.
+                </div>
+                <a href="#" class="guest-link" onclick="alert('Continuing as guest...')">Continue as Guest</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tab) {
+            // Update tab buttons
+            const tabs = document.querySelectorAll('.tab');
+            tabs.forEach(t => t.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            // Update form sections
+            const forms = document.querySelectorAll('.form-section');
+            forms.forEach(f => f.classList.remove('active'));
+            document.getElementById(tab + '-form').classList.add('active');
+        }
+        
+        function getOTP() {
+            const mobileInput = document.getElementById('login-mobile');
+            const mobile = mobileInput.value;
+            
+            if (!mobile) {
+                alert('Please enter your mobile number first');
+                mobileInput.focus();
+                return;
+            }
+            
+            // Simulate OTP sending
+            const btn = event.target;
+            const originalText = btn.textContent;
+            btn.textContent = 'Sending...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                btn.textContent = 'Sent ✓';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.disabled = false;
+                }, 2000);
+            }, 1500);
+            
+            // Show success message
+            setTimeout(() => {
+                alert(`OTP sent to ${mobile}`);
+            }, 1500);
+        }
+        
+        function handleLogin(event) {
+            event.preventDefault();
+            const mobile = document.getElementById('login-mobile').value;
+            const otp = document.getElementById('login-otp').value;
+            
+            // Simulate login process
+            const btn = event.target.querySelector('.primary-btn');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '🔄 Logging in...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+
+                alert(`Welcome back! Logging in with mobile: ${mobile}`);
+                  window.location.href="afterlogin.html"
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+                
+            }, 2000);
+        }
+        
+        function handleSignup(event) {
+            event.preventDefault();
+            const name = document.getElementById('signup-name').value;
+            const mobile = document.getElementById('signup-mobile').value;
+            const location = document.getElementById('signup-location').value;
+            const businessType = document.getElementById('business-type').value;
+            
+            // Simulate signup process
+            const btn = event.target.querySelector('.primary-btn');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '🔄 Creating Account...';
+            btn.disabled = true;
+            
+            setTimeout(() => {
+                alert(`Account created successfully!\nWelcome to Streetkart, ${name}!`);
+                window.location.href="afterlogin.html"
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }, 2000);
+        }
+        
+        // Add some interactive feedback
+        document.querySelectorAll('input, select').forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'scale(1.02)';
+            });
+            
+            input.addEventListener('blur', function() {
+                this.parentElement.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>

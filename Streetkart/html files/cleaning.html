@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cards</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f6f6f6;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #ffffff;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    header img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    header h2 {
+      margin: 0;
+      font-size: 20px;
+      color: #ffffff;
+    }
+
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: bold;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 50px;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 8px;
+      padding: 10px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+      object-fit: cover;
+      height: 200px;
+    }
+
+    .title {
+      font-weight: bold;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    .subtitle {
+      font-size: 12px;
+      color: #555;
+    }
+
+    .price {
+      margin-top: 5px;
+      font-size: 12px;
+    }
+
+    .price span {
+      color: green;
+      font-weight: bold;
+    }
+
+    .mrp {
+      text-decoration: line-through;
+      color: #999;
+      margin-left: 5px;
+    }
+
+    .btn-add {
+      margin-top: 5px;
+      background: #e6f5e6;
+      color: #008000;
+      border: 1px solid #008000;
+      border-radius: 4px;
+      text-align: center;
+      cursor: pointer;
+      padding: 5px;
+      font-size: 12px;
+    }
+
+    .recipes-link {
+      margin-top: 3px;
+      color: green;
+      font-size: 12px;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .cart-view {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: green;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-size: 14px;
+      text-align: center;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Popup Styles */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 20px 30px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      z-index: 999;
+      font-size: 16px;
+      font-weight: bold;
+      color: #008000;
+    }
+
+    .popup.show {
+      display: block;
+    }
+    header{
+        background: linear-gradient(135deg, #0D3B4B 0%, #2C5F73 100%);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header / Navbar -->
+  <header>
+    
+    <div style="display: flex; align-items: center;">
+      <img src="C:\Users\admin\Desktop\logo.png" alt="Logo">
+      <h2>RasoiLink</h2>
+    </div>
+    <nav class="nav">
+      <a href="#">Home</a>
+      <a href="#">Products</a>
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <img src="Streetkart/images/5c98f7a32cc7404924282e9b.jpeg" alt="Potato">
+      <div class="title">o-cader kitchen cleaner </div>
+      <div class="subtitle">11 MINS</div>
+      <div class="price"><span>₹520</span> <span class="mrp">₹700</span></div>
+      <a href="#" class="recipes-link">See more</a>
+      <div class="btn-add">ADD</div>
+    </div>
+
+    <div class="card">
+      <img src="Streetkart/images/images (10).jpeg" alt="Tomato">
+      <div class="title">Cleaning product</div>
+      <div class="subtitle">11 MINS</div>
+      <div class="price"><span>₹399</span> <span class="mrp">₹500</span></div>
+      <div class="btn-add">ADD</div>
+    </div>
+
+    <div class="card">
+      <img
+      src="Streetkart/images/cleaning-supplies-products-basket-getty-0121-2000-b01517577c964029a86a9ab5897be5d5-0823-f25e01e9e1ef41828bb1d003e1e2812d.jpg" alt="Onion">
+      <div class="title">Common Cleaning Agents</div>
+      <div class="subtitle">11 MINS</div>
+      <div class="price"><span>₹299</span> <span class="mrp">₹400</span></div>
+      <div class="btn-add">ADD</div>
+    </div>
+
+    <div class="card">
+      <img src="Streetkart/images/images (9).jpeg" alt="Coriander">
+      <div class="title">Easy use Brush</div>
+      <div class="subtitle">11 MINS</div>
+      <div class="price"><span>₹99</span></div>
+      <div class="btn-add">ADD</div>
+    </div>
+
+    <div class="card">
+      <img src="Streetkart/images/images (8).jpeg" alt="duster">
+      <div class="title">GALA Duster </div>
+      <div class="subtitle">11 MINS</div>
+      <div class="price"><span>₹78</span> <span class="mrp">₹90</span></div>
+      <div class="btn-add">ADD</div>
+    </div>
+
+    <div class="card">
+      <img src="Streetkart/images/40119520_5-scotch-brite-scrub-pad.webp" alt="scrub">
+      <div class="title">Scoth bright scrub for kitchen</div>
+      <div class="subtitle">11 MINS</div>
+      <div class="price"><span>₹28</span> <span class="mrp">₹35</span></div>
+      <a href="#" class="recipes-link">See more</a>
+      <div class="btn-add">ADD</div>
+    </div>
+
+    <div class="card">
+      <img src="Streetkart/images/the-honest-home-company-2-ply-kitchen-towel-tissue-roll-120-pulls-pack-of-2-x-60-pulls-product-images-orvnnnaqay3-p591852630-1-202407241157.webp" alt="kitchen towel">
+      <div class="title">Kitchen Towel rolls</div>
+      <div class="subtitle">11 MINS</div>
+      <div class="price"><span>₹99</span> <span class="mrp">₹120
+      </span></div>
+      <div class="btn-add">ADD</div>
+    </div>
+
+    <div class="card">
+      <img src="Streetkart/images/images (7).jpeg" alt="broom">
+      <div class="title">No Dust Broom </div>
+      <div class="subtitle">11 MINS</div>
+      <div class="price"><span>₹28</span> <span class="mrp">₹35</span></div>
+      <div class="btn-add">ADD</div>
+    </div>
+
+    <div class="card">
+      <img src="Streetkart/images/71CFc-fYMBL.UF1000,1000_QL80.jpg" alt="screen cleaner">
+      <div class="title">3 in 1 screen cleaner kit</div>
+      <div class="subtitle">11 MINS</div>
+      <div class="price"><span>₹199</span> <span class="mrp">₹250</span></div>
+      <div class="btn-add">ADD</div>
+    </div>
+      <div class="card">
+      <img src="Streetkart/images/images (6).jpeg" alt="steel dustbin">
+      <div class="title">plain steel dustbin</div>
+      <div class="subtitle">11 MINS</div>
+      <div class="price"><span>₹156</span> <span class="mrp">₹180</span></div>
+      <div class="btn-add">ADD</div>
+    </div>
+  </div>
+
+
+  <!-- Floating Cart Button -->
+  <div class="cart-view" onclick="alert('View Cart')">View Cart</div>
+
+  <!-- Popup Box -->
+  <div id="popup" class="popup">Item added successfully!</div>
+
+  <!-- Script for Popup -->
+  <script>
+    function showPopup() {
+      const popup = document.getElementById('popup');
+      popup.classList.add('show');
+
+      setTimeout(() => {
+        popup.classList.remove('show');
+      }, 2000); // hide after 2 seconds
+    }
+
+    // Apply the same popup to all ADD buttons
+    document.querySelectorAll('.btn-add').forEach(btn => {
+      btn.addEventListener('click', showPopup);
+    });
+  </script>
+
+</body>
+</html>

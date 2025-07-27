@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cards</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f6f6f6;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #ffffff;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    header img {
+      height: 40px;
+      margin-right: 10px;
+    }
+
+    header h2 {
+      margin: 0;
+      font-size: 20px;
+      color: #ffffff;
+    }
+
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: bold;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 50px;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 8px;
+      padding: 10px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+      object-fit: cover;
+      height: 200px;
+    }
+
+    .title {
+      font-weight: bold;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+
+    .subtitle {
+      font-size: 12px;
+      color: #555;
+    }
+
+    .price {
+      margin-top: 5px;
+      font-size: 12px;
+    }
+
+    .price span {
+      color: green;
+      font-weight: bold;
+    }
+
+    .mrp {
+      text-decoration: line-through;
+      color: #999;
+      margin-left: 5px;
+    }
+
+    .btn-add {
+      margin-top: 5px;
+      background: #e6f5e6;
+      color: #008000;
+      border: 1px solid #008000;
+      border-radius: 4px;
+      text-align: center;
+      cursor: pointer;
+      padding: 5px;
+      font-size: 12px;
+    }
+
+    .recipes-link {
+      margin-top: 3px;
+      color: green;
+      font-size: 12px;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .cart-view {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: green;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-size: 14px;
+      text-align: center;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Popup Styles */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 20px 30px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      z-index: 999;
+      font-size: 16px;
+      font-weight: bold;
+      color: #008000;
+    }
+
+    .popup.show {
+      display: block;
+    }
+    header{
+        background: linear-gradient(135deg, #0D3B4B 0%, #2C5F73 100%);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header / Navbar -->
+  <header>
+    
+    <div style="display: flex; align-items: center;">
+      <img src="C:\Users\admin\Desktop\logo.png" alt="Logo">
+      <h2>RasoiLink</h2>
+    </div>
+    <nav class="nav">
+     
+    </nav>
+  </header>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <img src="Streetkart/images/images.jpeg" alt="salade">
+      <div class="title">Fress Salad  </div>
+      <div class="subtitle">11 MINS</div>
+      <div class="price"><span>₹99</span> <span class="mrp">₹120</span></div>
+      <a href="#" class="recipes-link">See more</a>
+      <div class="btn-add">ADD</div>
+    </div>
+
+    <div class="card">
+      <img src="StreetKart/imgaes/images (1).jpeg" alt="product">
+      <div class="title">Upama Mix sankalp food products</div>
+      <div class="subtitle">11 MINS</div>
+      <div class="price"><span>₹399</span> <span class="mrp">₹500</span></div>
+      <div class="btn-add">ADD</div>
+    </div>
+
+    <div class="card">
+      <img src="StreetKart/imgaes/9198728_orig.jpg" alt="food">
+      <div class="title">Prepared Food Products Fress Carbonara Nepoli</div>
+      <div class="subtitle">11 MINS</div>
+      <div class="price"><span>₹299</span> <span class="mrp">₹400</span></div>
+      <div class="btn-add">ADD</div>
+    </div>
+
+    <div class="card">
+      <img src="StreetKart/imgaes/ready-to-cook-paratha-350.jpg" alt="paratha">
+      <div class="title">Ready Cook Paratha</div>
+      <div class="subtitle">11 MINS</div>
+      <div class="price"><span>₹99</span></div>
+      <div class="btn-add">ADD</div>
+    </div>
+
+    <div class="card">
+      <img src="StreetKart/imgaes/images (2).jpeg" alt="halwa">
+      <div class="title">Moong Dal Halwa pre Mix  </div>
+      <div class="subtitle">11 MINS</div>
+      <div class="price"><span>₹78</span> <span class="mrp">₹90</span></div>
+      <div class="btn-add">ADD</div>
+    </div>
+
+    <div class="card">
+      <img src="StreetKart/imgaes/images (3).jpeg" alt="upma">
+      <div class="title">Ready mad kesari halwa</div>
+      <div class="subtitle">11 MINS</div>
+      <div class="price"><span>₹28</span> <span class="mrp">₹35</span></div>
+      <a href="#" class="recipes-link">See more</a>
+      <div class="btn-add">ADD</div>
+    </div>
+
+    <div class="card">
+      <img src="StreetKart/imgaes/Poha_FOP_900x.webp" alt="poha">
+      <div class="title">Poha 80g</div>
+      <div class="subtitle">11 MINS</div>
+      <div class="price"><span>₹99</span> <span class="mrp">₹120
+      </span></div>
+      <div class="btn-add">ADD</div>
+    </div>
+
+    <div class="card">
+      <img src="StreetKart/imgaes/images (4).jpeg" alt="chawal">
+      <div class="title">Ready mad Briyani Easy to eat</div>
+      <div class="subtitle">11 MINS</div>
+      <div class="price"><span>₹128</span> <span class="mrp">₹140</span></div>
+      <div class="btn-add">ADD</div>
+    </div>
+
+    <div class="card">
+      <img src="StreetKart/imgaes/besan-1.jpg" alt="ladoo">
+      <div class="title">Haldiram ready made Besan ladoo </div>
+      <div class="subtitle">11 MINS</div>
+      <div class="price"><span>₹199</span> <span class="mrp">₹250</span></div>
+      <div class="btn-add">ADD</div>
+    </div>
+      <div class="card">
+      <img src="Streetkart/images/Images(5).jpeg" alt="samosa">
+      <div class="title">Punjabi Samosa</div>
+      <div class="subtitle">11 MINS</div>
+      <div class="price"><span>₹156</span>\ <span class="mrp">₹180</span></div>
+      <div class="btn-add">ADD</div>
+    </div>
+  </div>
+
+
+  <!-- Floating Cart Button -->
+  <div class="cart-view" onclick="alert('View Cart')">View Cart</div>
+
+  <!-- Popup Box -->
+  <div id="popup" class="popup">Item added successfully!</div>
+
+  <!-- Script for Popup -->
+  <script>
+    function showPopup() {
+      const popup = document.getElementById('popup');
+      popup.classList.add('show');
+
+      setTimeout(() => {
+        popup.classList.remove('show');
+      }, 2000); // hide after 2 seconds
+    }
+
+    // Apply the same popup to all ADD buttons
+    document.querySelectorAll('.btn-add').forEach(btn => {
+      btn.addEventListener('click', showPopup);
+    });
+  </script>
+
+</body>
+</html>
